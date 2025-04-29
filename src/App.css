@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@import url('https://fonts.googleapis.com/css2?family=Kranky&display=swap');
+
+/* .moon-dance-regular {
+  font-family: 'Moon Dance', cursive;
+} */
+
+.kranky-regular {
+  font-family: 'Kranky', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.active {
+  background-color: rgb(166, 22, 179);
+  color: rgb(19, 18, 18);
+  padding: 10px 10px;
+  border-radius: 5px;
+}
