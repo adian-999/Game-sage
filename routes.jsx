@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path:'allreviews',
-    element:<AllGames></AllGames>,
+    element:<Private><AllGames></AllGames></Private>,
     loader:()=> fetch('http://localhost:5000/addGame')
 
   },

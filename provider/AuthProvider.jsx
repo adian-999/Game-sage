@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth, googleProvider } from '../src/firebase.init';
-import { SlBasketLoaded } from 'react-icons/sl';
+
 
 export const AuthContext = createContext(null)
 
@@ -24,6 +24,7 @@ const AuthProvider = ({children}) => {
     return signInWithEmailAndPassword(auth,email,password)
     .then(result=>{
       setUser(result.user)
+      return result;
     })
     .finally(()=>setLoading(false))
   }
@@ -32,6 +33,7 @@ const AuthProvider = ({children}) => {
     return signInWithPopup(auth,googleProvider)
     .then(result => {
       setUser(result.user);
+      return result;
     })
     .finally(() => setLoading(false));
   }

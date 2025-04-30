@@ -1,5 +1,6 @@
 import React from 'react';
 import 'animate.css';
+import { Link } from 'react-router-dom';
 const Banner = () => {
   return (
     <div className='relative'>
@@ -11,7 +12,7 @@ const Banner = () => {
 
         <p className=' animate__animated animate__fadeInUpBig'>From hidden gems to blockbuster hits, we bring you the ultimate reviews, ratings, and insights.</p>
 
-        <button className="btn-outline btn mt-12 hover:bg-red-500 animate__animated animate__jackInTheBox">Explore More</button>
+        <Link to="/allreviews" className="btn-outline btn mt-12 hover:bg-red-500 animate__animated animate__jackInTheBox">Explore More</Link>
       </div>
 
     </div>

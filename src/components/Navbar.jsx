@@ -1,105 +1,8 @@
-// import { useContext } from "react";
-// import { Link, NavLink, useLocation } from "react-router-dom";
-// import { AuthContext } from "../../provider/AuthProvider";
-
-
-
-// const Navbar = () => {
-//   const {user,logout}=useContext(AuthContext)
-//   console.log(user)
-//   const location = useLocation();
-//   const pathName = location.pathname;
-//   const handleLogout=()=>{
-//     logout()
-//     .then(()=>{
-//       console.log("user logged out")
-//     })
-//     .catch(error=>{
-//       console.log(error)
-//     })
-//   }
-//   return (
-//     <div className="navbar  shadow-sm bg-purple-950">
-//   <div className="navbar-start">
-//     <div className="dropdown">
-//       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-//         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-//       </div>
-//       <ul
-//         tabIndex={0}
-//         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-//         <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
-
-//          <NavLink to="/allreviews" className={({ isActive })          => isActive ? "active" : ""}>All Reviews</NavLink>
-
-//          <NavLink to="/addreviews" className={({ isActive })          => isActive ? "active" : ""}>Add Reviews</NavLink>
-
-//          <NavLink to="/myreviews" className={({ isActive })          => isActive ? "active" : ""}>My Reviews</NavLink>
-
-//          <NavLink to="/watchlist" className={({ isActive })          => isActive ? "active" : ""}>Game WatchList</         NavLink>
-
-
-
-
-//       </ul>
-//     </div>
-//     <div className="flex items-center text-white lg:gap-5">
-//     <img className="w-14 rounded-full lg:ml-6" src={'/public/logo/f6cde031-f81b-4495-85d6-f05443c1adbe.jpeg'} alt="" />
-//     <h2 className="font-bold text-2xl">GameSage</h2>
-//     </div>
-//   </div>
-//   <div className="navbar-center hidden lg:flex">
-//     <ul className="menu menu-horizontal gap-12 text-white">
-//     <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
-
-//         <NavLink to="/allreviews" className={({         isActive })          => isActive ? "active" : ""}        >All Reviews</NavLink>
-
-//         <NavLink to="/addreviews" className={({         isActive })          => isActive ? "active" : ""}        >Add Reviews</NavLink>
-
-//         <NavLink to="/myreviews" className={({         isActive })          => isActive ? "active" : ""}        >My Reviews</NavLink>
-
-//         <NavLink to="/watchlist" className={({         isActive })          => isActive ? "active" : ""}        >Game WatchList</NavLink>
-//     </ul>
-//   </div>
-
-//   {user? <div className="text-xl text-white font-semibold px-12">
-//     <div className="flex items-center gap-6">
-//     {user? <p>{user.displayName}</p> : "user"}
-
-//     <img className="w-16 rounded-full" src={user.photoURL} alt="" />
-
-// <button onClick={handleLogout} className="btn bg-red-500 hover:bg-red-800 hover:text-white">LogOut</button>
-//     </div>
-
-//     </div> :  <div className="navbar-end gap-5">
-
-// {pathName !== "/login" && <Link className="btn" to="/login">Login</Link> }
-
-
-
-
-
-
-// {pathName!=="/register" && <Link  className="btn" to="/register">Register</Link>}
-
-// </div> }
-
-
-
-
-
-// </div>
-//   );
-// };
-
-// export default Navbar;
-
-
-
 
 import { useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -108,7 +11,17 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout()
-      .then(() => console.log("user logged out"))
+      .then(() =>{
+        console.log("user logged out")
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "successfully logged out",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } )
+
       .catch(error => console.log(error));
   };
 
@@ -132,7 +45,7 @@ const Navbar = () => {
             <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink></li>
             <li><NavLink to="/allreviews" className={({ isActive }) => isActive ? "active" : ""}>All Reviews</NavLink></li>
             <li><NavLink to="/addreviews" className={({ isActive }) => isActive ? "active" : ""}>Add Reviews</NavLink></li>
-            <li><NavLink to="/myreviews" className={({ isActive }) => isActive ? "active" : ""}>My Reviews</NavLink></li>
+           
             <li><NavLink to="/watchlist" className={({ isActive }) => isActive ? "active" : ""}>Game WatchList</NavLink></li>
           </ul>
         </div>
@@ -153,7 +66,7 @@ const Navbar = () => {
           <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink></li>
           <li><NavLink to="/allreviews" className={({ isActive }) => isActive ? "active" : ""}>All Reviews</NavLink></li>
           <li><NavLink to="/addreviews" className={({ isActive }) => isActive ? "active" : ""}>Add Reviews</NavLink></li>
-          <li><NavLink to="/myreviews" className={({ isActive }) => isActive ? "active" : ""}>My Reviews</NavLink></li>
+
           <li><NavLink to="/watchlist" className={({ isActive }) => isActive ? "active" : ""}>Game WatchList</NavLink></li>
         </ul>
       </div>
@@ -177,6 +90,8 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex gap-3">
+
+
             {pathName !== "/login" && (
               <Link className="btn btn-sm" to="/login">
                 Login

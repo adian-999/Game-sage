@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,6 +35,13 @@ const Login = () => {
       .then((result) => {
         console.log("User signed in with Google:", result.user);
         setError("");
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Successfully logged in",
+          showConfirmButton: false,
+          timer: 1500
+        });
         navigate("/");
       })
       .catch((error) => {
