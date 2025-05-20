@@ -17,7 +17,7 @@ const AddGame = () => {
 
   const handleSubmit=(e)=>{
 
-    
+
 
 
     e.preventDefault();
@@ -35,7 +35,7 @@ const AddGame = () => {
 
     console.log(newGame)
 
-    fetch('http://localhost:5000/addGame',{
+    fetch('https://game-review-server-sigma.vercel.app/addGame',{
       method:'POST',
       headers: {
         'content-type':'application/json'

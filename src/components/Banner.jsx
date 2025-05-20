@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className='relative'>
 
-      <img src={'/public/banner/wallpapersden.com_omen-valorant-4k_3840x2160.jpg'} alt="" />
+      <img src={'/banner/wallpapersden.com_omen-valorant-4k_3840x2160.jpg'} alt="" />
 
       <div className='lg:absolute  lg:w-1/2 mx-25 text-center lg:ml-16 lg:top-88 lg:text-white '>
         <h2 className="text-5xl font-semibold my-8 animate__animated animate__lightSpeedInRight">Dive into the World of Gaming!</h2>

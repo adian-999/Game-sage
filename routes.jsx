@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   {
     path:"/",
     element:<Home></Home>,
-    loader:()=> fetch('http://localhost:5000/addGame')
+    loader:()=> fetch('https://game-review-server-sigma.vercel.app/addGame')
   },
   {
     path:'addreviews',
@@ -23,18 +23,18 @@ const router = createBrowserRouter([
   {
     path:'details/:id',
     element:<Private><Details></Details></Private>,
-    loader: ({ params }) => fetch(`http://localhost:5000/addGame/${params.id}`)
+    loader: ({ params }) => fetch(`https://game-review-server-sigma.vercel.app/addGame/${params.id}`)
 
   },
   {
     path:'update/:id',
     element:<Private><Update></Update></Private>,
-    loader:({params})=>fetch(`http://localhost:5000/addGame/${params.id}`)
+    loader:({params})=>fetch(`https://game-review-server-sigma.vercel.app/addGame/${params.id}`)
   },
   {
     path:'allreviews',
     element:<Private><AllGames></AllGames></Private>,
-    loader:()=> fetch('http://localhost:5000/addGame')
+    loader:()=> fetch('https://game-review-server-sigma.vercel.app/addGame')
 
   },
   {

@@ -13,7 +13,7 @@ const Details = () => {
   const[isWatchlist,setWatchlist]=useState(false);
 
   const handleAddToWatchList=()=>{
-    fetch("http://localhost:5000/Watchlist",{
+    fetch("https://game-review-server-sigma.vercel.app/Watchlist",{
       method : "POST",
       headers : {
         "content-type":"application/json"

@@ -9,7 +9,7 @@ const Watchlist = () => {
   const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/watchlist")
+    fetch("https://game-review-server-sigma.vercel.app/watchlist")
       .then((res) => res.json())
       .then((data) => setWatchlist(data));
   }, []);
@@ -26,7 +26,7 @@ const Watchlist = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result)=>{
       if(result.isConfirmed){
-        fetch(`http://localhost:5000/watchlist/${id}`, {
+        fetch(`https://game-review-server-sigma.vercel.app/watchlist/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

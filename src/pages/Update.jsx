@@ -34,7 +34,7 @@ const Update = () => {
 
       console.log(newGame)
 
-      fetch(`http://localhost:5000/addGame/${_id}`,{
+      fetch(`https://game-review-server-sigma.vercel.app/addGame/${_id}`,{
         method:'Put',
         headers: {
           'content-type':'application/json'
